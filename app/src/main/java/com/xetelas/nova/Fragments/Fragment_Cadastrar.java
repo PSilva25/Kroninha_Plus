@@ -287,7 +287,7 @@ public class Fragment_Cadastrar extends Fragment {
                     ShowPopup();
                 } else if (dataSnapshot.exists()) {
 
-                    verificaQuantPosts();
+                    cadastra();
                 }
             }
 
@@ -375,103 +375,6 @@ public class Fragment_Cadastrar extends Fragment {
         return z;
     }
 
-    public void verificaQuantPosts() {
-        SimpleDateFormat formataData = new SimpleDateFormat("dd-MM-yyyy");
-        Date data2 = new Date();
-        final String dataFormatada;
-        dataFormatada = formataData.format(data2);
-
-
-
-        databaseverifica = firebaseDatabase.getReference().child(user.getDisplayName() + " - " + user.getUid());
-        databaseverifica.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                int conta = 0;
-
-                if (dataSnapshot.child("Qtd_caronas").exists()) {
-                    veri = 1;
-                }
-
-                if (!dataSnapshot.child("Caronas").exists()) {
-                    conta = 0;
-                } else if (dataSnapshot.child("Caronas").exists()) {
-                    for (DataSnapshot objSnapshot : dataSnapshot.child("Caronas").getChildren()) {
-                        if (objSnapshot.child("data_postagem").exists()) {
-                            String datacadastrada = objSnapshot.child("data_postagem").getValue().toString();
-                            if (datacadastrada.equals(dataFormatada)) {
-                                conta++;
-                            }
-                        }
-                    }
-                }
-
-                conta2 = conta;
-                if (veri == 1) {
-                    dataBasedata = firebaseDatabase.getReference().child(user.getDisplayName() + " - " + user.getUid());
-                    dataBasedata.addValueEventListener(new ValueEventListener() {
-                        String pegatab = null;
-
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            pegatab = dataSnapshot.child("Qtd_caronas").getValue().toString();
-
-                            String[] x = pegatab.split("-");
-                            String[] y = dataFormatada.split("-");
-                            int diatual = Integer.valueOf(y[0]);
-                            int mesatual = Integer.valueOf(y[1]);
-                            int anotual = Integer.valueOf(y[2]);
-
-                            int diatab = Integer.valueOf(x[1]);
-                            int mestab = Integer.valueOf(x[2]);
-                            int anotab = Integer.valueOf(x[3]);
-
-                            quantidade = Integer.valueOf(x[0]);
-                            diax = diatab;
-                            mesx = mestab;
-                            anox = anotab;
-                            diaatual = diatual;
-                            MESATUAL = mesatual;
-                            anoatual = anotual;
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-                        }
-                    });
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
-
-        if((mesx < MESATUAL) && quantidade>0){
-            quantidade = 0;
-            cadastra();
-
-        }else if((mesx==12 && MESATUAL==1)  && quantidade>0){
-            quantidade = 0;
-            cadastra();
-
-        }
-
-        if (quantidade > 0) {
-            if (quantidade <= 3) {
-                cadastra();
-                databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("Qtd_caronas").setValue(String.valueOf((quantidade + 1) + "-" + dataFormatada));
-
-            } else if (quantidade > 3 ) {
-                FireMissilesLimit opa = new FireMissilesLimit();
-                opa.show(getFragmentManager(), "missiles");
-            }
-        } else if (veri == 0 || quantidade == 0) {
-            cadastra();
-
-        }
-    }
-
     public void cadastra() {
 
         SimpleDateFormat formataData = new SimpleDateFormat("dd-MM-yyyy");
@@ -507,7 +410,7 @@ public class Fragment_Cadastrar extends Fragment {
             databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("Caronas").child(String.valueOf(contadora1 + 1)).child("data").setValue(dados.getData());
             databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("Caronas").child(String.valueOf(contadora1 + 1)).child("hora").setValue(dados.getHora());
             databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("Caronas").child(String.valueOf(contadora1 + 1)).child("comentario").setValue(dados.getComent());
-            databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("Qtd_caronas").setValue(String.valueOf((quantidade + 1) + "-" + dataFormatada));
+            
 
             dados.setComent("");
             dados.setHora("");
