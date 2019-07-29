@@ -1,0 +1,279 @@
+<resources>
+    <string name="app_name">Kroninha</string>
+    <string name="action_settings">Alterar número</string>
+
+    <string name="text_fragment_minha">Suas caronas postadas: </string>
+
+    <string name="destino">Destino:</string>
+
+    <string name="tipo">Tipo:</string>
+    <string name="oferecer">Oferecer</string>
+    <string name="buscar">Buscar</string>
+
+    <string name="data">Data:*</string>
+    <string name="hor_rio">Horário:*</string>
+    <string name="dd_mm">DD/MM/AAAA</string>
+
+    <string name="cadastrar">Cadastrar</string>
+    <string name="xx_xx">XX:XX</string>
+
+    <string name="email">Email</string>
+    <string name="senha">Senha</string>
+    <string name="login">Login</string>
+    <string name="registrar">Registrar</string>
+
+    <string-array name="titles_tab">
+        <item>Minhas</item>
+        <item>Cadastrar</item>
+        <item>Procurar</item>
+    </string-array>
+
+    <string-array name="cidades">
+        <item>Acauã</item>
+        <item>Agricolândia</item>
+        <item>Água Branca</item>
+        <item>Alagoinha do Piauí</item>
+        <item>Alegrete do Piauí</item>
+        <item>Alto Longá</item>
+        <item>Altos</item>
+        <item>Alvorada do Gurgueia</item>
+        <item>Amarante</item>
+        <item>Angical do Piauí</item>
+        <item>Antônio Almeida</item>
+        <item>Anísio de Abreu</item>
+        <item>Aroazes</item>
+        <item>Aroeiras do Itaim</item>
+        <item>Arraial</item>
+        <item>Assunção do Piauí</item>
+        <item>Avelino Lopes</item>
+        <item>Baixa Grande do Ribeiro</item>
+        <item>Barra d Alcântara</item>
+        <item>Barras</item>
+        <item>Barreiras do Piauí</item>
+        <item>Barro Duro</item>
+        <item>Batalha</item>
+        <item>Bela Vista do Piauí</item>
+        <item>Belém do Piauí</item>
+        <item>Beneditinos</item>
+        <item>Bertolínia</item>
+        <item>Betânia do Piauí</item>
+        <item>Boa Hora</item>
+        <item>Bocaina</item>
+        <item>Bom Jesus</item>
+        <item>Bom Princípio do Piauí</item>
+        <item>Bonfim do Piauí</item>
+        <item>Boqueirão do Piauí</item>
+        <item>Brasileira</item>
+        <item>Brejo do Piauí</item>
+        <item>Buriti dos Lopes</item>
+        <item>Buriti dos Montes</item>
+        <item>Cabeceiras do Piauí</item>
+        <item>Cajazeiras do Piauí</item>
+        <item>Cajueiro da Praia</item>
+        <item>Caldeirão Grande do Piauí</item>
+        <item>Campinas do Piauí</item>
+        <item>Campo Alegre do Fidalgo</item>
+        <item>Campo Grande do Piauí</item>
+        <item>Campo Largo do Piauí</item>
+        <item>Campo Maior</item>
+        <item>Canavieira</item>
+        <item>Canto do Buriti</item>
+        <item>Capitão Gervásio Oliveira</item>
+        <item>Capitão de Campos</item>
+        <item>Caracol</item>
+        <item>Caraúbas do Piauí</item>
+        <item>Caridade do Piauí</item>
+        <item>Castelo do Piauí</item>
+        <item>Caxingó</item>
+        <item>Cocal</item>
+        <item>Cocal de Telha</item>
+        <item>Cocal dos Alves</item>
+        <item>Coivaras</item>
+        <item>Colônia do Gurgueia</item>
+        <item>Colônia do Piauí</item>
+        <item>Conceição do Canindé</item>
+        <item>Coronel José Dias</item>
+        <item>Corrente</item>
+        <item>Cristalândia do Piauí</item>
+        <item>Cristino Castro</item>
+        <item>Curimatá</item>
+        <item>Currais</item>
+        <item>Curral Novo do Piauí</item>
+        <item>Curralinhos</item>
+        <item>Demerval Lobão</item>
+        <item>Dirceu Arcoverde</item>
+        <item>Dom Expedito Lopes</item>
+        <item>Dom Inocêncio</item>
+        <item>Domingos Mourão</item>
+        <item>Elesbão Veloso</item>
+        <item>Eliseu Martins</item>
+        <item>Esperantina</item>
+        <item>Fartura do Piauí</item>
+        <item>Flores do Piauí</item>
+        <item>Floresta do Piauí</item>
+        <item>Floriano</item>
+        <item>Francinópolis</item>
+        <item>Francisco Ayres</item>
+        <item>Francisco Macedo</item>
+        <item>Francisco Santos</item>
+        <item>Fronteiras</item>
+        <item>Geminiano</item>
+        <item>Gilbués</item>
+        <item>Guadalupe</item>
+        <item>Guaribas</item>
+        <item>Hugo Napoleão</item>
+        <item>Ilha Grande</item>
+        <item>Inhuma</item>
+        <item>Ipiranga do Piauí</item>
+        <item>Isaías Coelho</item>
+        <item>Itainópolis</item>
+        <item>Itaueira</item>
+        <item>Jacobina do Piauí</item>
+        <item>Jaicós</item>
+        <item>Jardim do Mulato</item>
+        <item>Jatobá do Piauí</item>
+        <item>Jerumenha</item>
+        <item>Joaquim Pires</item>
+        <item>Joca Marques</item>
+        <item>José de Freitas</item>
+        <item>João Costa</item>
+        <item>Juazeiro do Piauí</item>
+        <item>Jurema</item>
+        <item>Júlio Borges</item>
+        <item>Lagoa Alegre</item>
+        <item>Lagoa de São Francisco</item>
+        <item>Lagoa do Barro do Piauí</item>
+        <item>Lagoa do Piauí</item>
+        <item>Lagoa do Sítio</item>
+        <item>Lagoinha do Piauí</item>
+        <item>Landri Sales</item>
+        <item>Luzilândia</item>
+        <item>Luís Correia</item>
+        <item>Madeiro</item>
+        <item>Manoel Emídio</item>
+        <item>Marcolândia</item>
+        <item>Marcos Parente</item>
+        <item>Massapê do Piauí</item>
+        <item>Matias Olímpio</item>
+        <item>Miguel Alves</item>
+        <item>Miguel Leão</item>
+        <item>Milton Brandão</item>
+        <item>Monsenhor Gil</item>
+        <item>Monsenhor Hipólito</item>
+        <item>Monte Alegre do Piauí</item>
+        <item>Morro Cabeça no Tempo</item>
+        <item>Morro do Chapéu do Piauí</item>
+        <item>Murici dos Portelas</item>
+        <item>Nazaré do Piauí</item>
+        <item>Nazária</item>
+        <item>Nossa Senhora de Nazaré</item>
+        <item>Nossa Senhora dos Remédios</item>
+        <item>Nova Santa Rita</item>
+        <item>Novo Oriente do Piauí</item>
+        <item>Novo Santo Antônio</item>
+        <item>Oeiras</item>
+        <item>Olho d Água do Piauí</item>
+        <item>Padre Marcos</item>
+        <item>Paes Landim</item>
+        <item>Pajeú do Piauí</item>
+        <item>Palmeira do Piauí</item>
+        <item>Palmeirais</item>
+        <item>Paquetá</item>
+        <item>Parnaguá</item>
+        <item>Parnaíba</item>
+        <item>Passagem Franca do Piauí</item>
+        <item>Patos do Piauí</item>
+        <item>Pau d Arco do Piauí</item>,
+        <item>Paulistana</item>
+        <item>Pavussu</item>
+        <item>Pedro II</item>
+        <item>Pedro Laurentino</item>
+        <item>Picos</item>
+        <item>Pimenteiras</item>
+        <item>Pio IX</item>
+        <item>Piracuruca</item>
+        <item>Piripiri</item>
+        <item>Porto</item>
+        <item>Porto Alegre do Piauí</item>
+        <item>Prata do Piauí</item>
+        <item>Queimada Nova</item>
+        <item>Redenção do Gurgueia</item>
+        <item>Regeneração</item>
+        <item>Riacho Frio</item>
+        <item>Ribeira do Piauí</item>
+        <item>Ribeiro Gonçalves</item>
+        <item>Rio Grande do Piauí</item>
+        <item>Santa Cruz do Piauí</item>
+        <item>Santa Cruz dos Milagres</item>
+        <item>Santa Filomena</item>
+        <item>Santa Luz</item>
+        <item>Santa Rosa do Piauí</item>
+        <item>Santana do Piauí</item>
+        <item>Santo Antônio de Lisboa</item>
+        <item>Santo Antônio dos Milagres</item>
+        <item>Santo Inácio do Piauí</item>
+        <item>Sebastião Barros</item>
+        <item>Sebastião Leal</item>
+        <item>Sigefredo Pacheco</item>
+        <item>Simplício Mendes</item>
+        <item>Simões</item>
+        <item>Socorro do Piauí</item>
+        <item>Sussuapara</item>
+        <item>São Braz do Piauí</item>
+        <item>São Francisco de Assis do Piauí</item>
+        <item>São Francisco do Piauí</item>
+        <item>São Félix do Piauí</item>
+        <item>São Gonçalo do Gurgueia</item>
+        <item>São Gonçalo do Piauí</item>
+        <item>São José do Divino</item>
+        <item>São José do Peixe</item>
+        <item>São José do Piauí</item>
+        <item>São João da Canabrava</item>
+        <item>São João da Fronteira</item>
+        <item>São João da Serra</item>
+        <item>São João da Varjota</item>
+        <item>São João do Arraial</item>
+        <item>São João do Piauí</item>
+        <item>São Julião</item>
+        <item>São Lourenço do Piauí</item>
+        <item>São Luís do Piauí</item>
+        <item>São Miguel da Baixa Grande</item>
+        <item>São Miguel do Fidalgo</item>
+        <item>São Miguel do Tapuio</item>
+        <item>São Pedro do Piauí</item>
+        <item>São Raimundo Nonato</item>
+        <item>Tamboril do Piauí</item>
+        <item>Tanque do Piauí</item>
+        <item>Teresina</item>
+        <item>União</item>
+        <item>Uruçuí</item>
+        <item>Valença do Piauí</item>
+        <item>Vera Mendes</item>
+        <item>Vila Nova do Piauí</item>
+        <item>Várzea Branca</item>
+        <item>Várzea Grande</item>
+        <item>Wall Ferraz</item>
+    </string-array>
+
+    <string name="dialog_fire_missiles">Ao entrar com o Facebook você concorda com a disponibilidada do seu perfil público do Facebook.</string>
+    <string name="fire">Concordo</string>
+    <string name="cancel">Discordo</string>
+
+    <string name="facebook_app_id">678753119224687</string>
+    <string name="fb_login_protocol_scheme">fb678753119224687</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Sem postagens</string>
+    <string name="sair">Sair</string>
+    <string name="para">Para:*</string>
+    <string name="de">De:*</string>
+    <string name="hora">Horário:*</string>
+    <string name="button">Button</string>
+    <string name="nenhuma_carona_cadastrada">Nenhuma carona cadastrada</string>
+    <string name="main_menu">main_menu</string>
+    <string name="para_oferecer_uma_carona">Para oferecer uma carona, é necessário inserir seu número do WhatsApp para que os usuários entrem em contato. Por favor, insira seu número válido (DDD + 8 numeros) abaixo:</string>
+    <string name="insira_seu_n_mero_telefone">Insira seu número telefone (DDD + 8 numeros)</string>
+    <string name="_99_999999999">(99)99999999</string>
+    <string name="feito">Feito</string>
+
+</resources>

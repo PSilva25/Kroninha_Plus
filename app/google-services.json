@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "83303964525",
+    "firebase_url": "https://nova-b89f3.firebaseio.com",
+    "project_id": "nova-b89f3",
+    "storage_bucket": "nova-b89f3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:83303964525:android:99abf7684fbe3874",
+        "android_client_info": {
+          "package_name": "com.xetelas.nova"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "83303964525-slggfc1k55jv3umpvd60spegt4mbfal9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.xetelas.nova",
+            "certificate_hash": "cd9c20c00c55eeb6e42a0db1e01c4f136a96e2d2"
+          }
+        },
+        {
+          "client_id": "83303964525-6tm5ll3l44672kv4gev7abp51p460j0c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCqD5gSKCtnSpgZHNP3jzd-kAcqNVKS3o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "83303964525-6tm5ll3l44672kv4gev7abp51p460j0c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_item_list"
+    android:padding="10dp"
+    android:layout_gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:text="Encontre sua carona:"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/id_de"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0"
+            android:labelFor="@+id/spinner_de"
+            android:text="De:"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <AutoCompleteTextView
+            android:id="@+id/spinner_de"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:drawable/editbox_background"
+            android:textSize="20sp"
+            android:layout_marginStart="7dp"
+            android:entries="@array/cidades"
+            android:hint="CIDADE ORIGEM"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/id_para"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:labelFor="@+id/spinner_para"
+            android:text="Para:"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <AutoCompleteTextView
+            android:id="@+id/spinner_para"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:drawable/editbox_background"
+            android:layout_marginStart="7dp"
+            android:entries="@array/cidades"
+            android:textSize="20sp"
+            android:hint="CIDADE DESTINO"
+            android:textAlignment="center"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/text_date"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:labelFor="@+id/edit_Data"
+            android:text="Data:"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold" /> <!--Text Data-->
+
+        <EditText
+            android:id="@+id/edit_Data"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:drawable/editbox_background"
+            android:layout_marginStart="7dp"
+            android:clickable="true"
+            android:focusable="false"
+            android:padding="7dp"
+            android:textSize="20sp"
+            android:hint="@string/dd_mm"
+            android:inputType="date"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <Button
+            android:id="@+id/bot_cancel"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:background="@drawable/button_gradient_red"
+            android:textColor="#FFFFFF"/>
+
+
+        <Button
+            android:id="@+id/bot_filtro"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Filtrar"
+            android:background="@drawable/button_gradient_blue"
+            android:textColor="#FFFFFF"/>
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

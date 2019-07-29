@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_item_list"
+    android:padding="10dp"
+    tools:context=".Fragments.Fragment_Procurar">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/origem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="textview"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/origem2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/origem"
+                    android:layout_toEndOf="@+id/origem"
+                    android:layout_toRightOf="@+id/origem"
+                    android:text="textview"
+                    android:textColor="@color/title_text_color"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/destino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="textview"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/destino2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/destino"
+                    android:layout_toEndOf="@+id/destino"
+                    android:layout_toRightOf="@+id/destino"
+                    android:text="textview"
+                    android:textColor="@color/title_text_color"
+                    android:textSize="15sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="textview"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/data2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/data"
+                    android:layout_toEndOf="@+id/data"
+                    android:layout_toRightOf="@+id/data"
+                    android:text="textview"
+                    android:textColor="@color/title_text_color"
+                    android:textSize="15sp" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hora"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="textview"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/hora2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/hora"
+                    android:layout_toEndOf="@+id/hora"
+                    android:layout_toRightOf="@+id/hora"
+                    android:text="textview"
+                    android:textColor="@color/title_text_color"
+                    android:textSize="15sp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0">
+
+            <ImageView
+                android:id="@+id/del"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/ic_menu_delete"
+                android:backgroundTint="@color/colorAccent" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/comentario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:text="textview" />
+
+    <TextView
+        android:id="@+id/comentario2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:background="@android:drawable/editbox_background"
+        android:textColor="@color/title_text_color"
+        android:textSize="15sp"
+        android:textStyle="italic" />
+
+</LinearLayout>

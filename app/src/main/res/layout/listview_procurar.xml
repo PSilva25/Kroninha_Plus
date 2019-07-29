@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_item_list"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".Fragments.Fragment_Procurar">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/usuario"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/face"
+            android:text="textview"
+            android:textColor="@color/colorPrimary"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/face"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="TODO"
+                android:foreground="@drawable/com_facebook_button_icon_blue" />
+
+            <ImageView
+                android:id="@+id/whats"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:contentDescription="TODO"
+                android:foreground="@mipmap/whatsapp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/origem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="textview"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/origem2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/origem"
+            android:layout_toRightOf="@+id/origem"
+            android:text="textview"
+            android:textColor="@color/title_text_color"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/destino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="textview"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/destino2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/destino"
+            android:layout_toEndOf="@+id/destino"
+            android:layout_toRightOf="@+id/destino"
+            android:text="textview"
+            android:textColor="@color/title_text_color"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="textview"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/data2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/data"
+            android:layout_toEndOf="@+id/data"
+            android:layout_toRightOf="@+id/data"
+            android:text="textview"
+            android:textColor="@color/title_text_color"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/hora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="textview"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/hora2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/hora"
+            android:layout_toEndOf="@+id/hora"
+            android:layout_toRightOf="@+id/hora"
+            android:text="textview"
+            android:textColor="@color/title_text_color"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/comentario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textview"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/comentario2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:background="@android:drawable/editbox_background"
+        android:textColor="@color/title_text_color"
+        android:textSize="15sp"
+        android:textStyle="italic" />
+
+</LinearLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_lists"
+    tools:context=".Fragments.Fragment_Procurar">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="10dp">
+
+        <ListView
+            android:id="@+id/lista_geral"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dividerHeight="10dp"
+            android:divider="#00000000"
+            tools:listitem="@layout/listview_procurar">
+
+        </ListView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:src="@android:drawable/ic_menu_search"
+            app:maxImageSize="50dp"
+            app:backgroundTint="@color/colorPrimary" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="70dp"
+            android:src="@android:drawable/ic_menu_revert"
+            app:maxImageSize="50dp"
+            app:backgroundTint="@color/colorAccent" />
+
+    </FrameLayout>
+
+</LinearLayout>
