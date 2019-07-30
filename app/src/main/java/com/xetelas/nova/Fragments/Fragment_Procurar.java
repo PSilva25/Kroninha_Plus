@@ -60,7 +60,6 @@ public class Fragment_Procurar extends Fragment {
     Context context;
     String tellphone, link;
     Boolean isFilter = false;
-    Dialog myDialog;
     TextView origem, destino, date;
     EditText data;
     Button cancel, filtro;
@@ -96,7 +95,6 @@ public class Fragment_Procurar extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myDialog = new Dialog(getContext());
                 ShowPopup();
             }
         });
@@ -292,9 +290,6 @@ public class Fragment_Procurar extends Fragment {
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
-
-        myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-        myDialog.show();
 
         builder.setView(content)
                 .setPositiveButton("Filtrar", new DialogInterface.OnClickListener() {
