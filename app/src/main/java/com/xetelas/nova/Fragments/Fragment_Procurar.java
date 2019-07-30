@@ -3,6 +3,7 @@ package com.xetelas.nova.Fragments;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -11,6 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -248,38 +250,26 @@ public class Fragment_Procurar extends Fragment {
 
     public void ShowPopup() {
 
-        myDialog.setContentView(R.layout.popup_filtro);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
-        origem = myDialog.findViewById(R.id.id_de);
-        destino = myDialog.findViewById(R.id.id_para);
-        date = myDialog.findViewById(R.id.text_date);
+        LayoutInflater factory = LayoutInflater.from(getContext());
+        View content = factory.inflate(R.layout.popup_filtro, null);
 
-        de = myDialog.findViewById(R.id.spinner_de);
-        para = myDialog.findViewById(R.id.spinner_para);
-        data = myDialog.findViewById(R.id.edit_Data);
+        builder.setTitle("Encontre sua carona:");
+
+        origem = content.findViewById(R.id.id_de);
+        destino = content.findViewById(R.id.id_para);
+        date = content.findViewById(R.id.text_date);
+
+        de = content.findViewById(R.id.spinner_de);
+        para = content.findViewById(R.id.spinner_para);
+        data = content.findViewById(R.id.edit_Data);
 
         String[] cities = getResources().getStringArray(R.array.cidades);
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, cities);
 
         de.setAdapter(adapter);
         para.setAdapter(adapter);
-
-        filtro = myDialog.findViewById(R.id.bot_filtro);
-        filtro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                filtro(de.getText().toString(), para.getText().toString(), data.getText().toString());
-                myDialog.dismiss();
-            }
-        });
-
-        cancel = myDialog.findViewById(R.id.bot_cancel);
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myDialog.dismiss();
-            }
-        });
 
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
@@ -305,6 +295,21 @@ public class Fragment_Procurar extends Fragment {
 
         myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
         myDialog.show();
+
+        builder.setView(content)
+                .setPositiveButton("Filtrar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        filtro(de.getText().toString(), para.getText().toString(), data.getText().toString());
+                    }
+                })
+                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+
+        builder.show();
     }
 
     public List<Caronas> ordena() {

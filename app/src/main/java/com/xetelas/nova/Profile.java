@@ -1,16 +1,19 @@
 package com.xetelas.nova;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,9 +39,6 @@ public class Profile extends AppCompatActivity {
     FirebaseUser user = firebaseAuth.getCurrentUser();
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    Dialog myDialog;
-    EditText tell;
-    String num = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,13 +74,12 @@ public class Profile extends AppCompatActivity {
             firebaseAuth.getInstance().signOut();
             LoginManager.getInstance().logOut();
             finish();
-            Intent intent = new Intent(this,MainActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
-        if (id == R.id.action_settings){
-            myDialog = new Dialog(this);
+        if (id == R.id.action_settings) {
             ShowPopup();
         }
 
@@ -88,48 +87,60 @@ public class Profile extends AppCompatActivity {
     }
 
     public void ShowPopup() {
-        myDialog.setContentView(R.layout.popup_tell_att);
-        final EditText dd = myDialog.findViewById(R.id.edit_tell_ddd);
-        final EditText x5 = myDialog.findViewById(R.id.edit_tell_5num);
-        final EditText x4 = myDialog.findViewById(R.id.edit_tell_4num);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Atualizar Telefone");
+
+        LayoutInflater factory = LayoutInflater.from(this);
+        View content = factory.inflate(R.layout.popup_tell_att, null);
+
+        final EditText dd = content.findViewById(R.id.edit_tell_ddd);
+        final EditText x5 = content.findViewById(R.id.edit_tell_5num);
+        final EditText x4 = content.findViewById(R.id.edit_tell_4num);
 
         dd.addTextChangedListener(new TextWatcher() {
             public void afterTextChanged(Editable s) {
-                if(dd.length() > 1) x5.requestFocus();
+                if (dd.length() > 1) x5.requestFocus();
             }
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             public void onTextChanged(CharSequence s, int start, int before, int count) {
             }
         });
 
         x5.addTextChangedListener(new TextWatcher() {
             public void afterTextChanged(Editable s) {
-                if(x5.length() > 3) x4.requestFocus();
+                if (x5.length() > 3) x4.requestFocus();
             }
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-        });
 
-        Button filtro = myDialog.findViewById(R.id.bot_addtell);
-        filtro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String tell = dd.getText().toString() + x5.getText().toString() + x4.getText().toString();
-                databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("telefone").setValue(tell);
-                myDialog.dismiss();
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
             }
         });
 
-        Button cancel = myDialog.findViewById(R.id.bot_cancel);
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myDialog.dismiss();
-            }
-        });
 
-        myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-        myDialog.show();
+        builder.setView(content)
+            .setPositiveButton("Atualizar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                    String tell = dd.getText().toString() + x5.getText().toString() + x4.getText().toString();
+                    databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("telefone").setValue(tell);
+                    Toast toast5 = Toast.makeText(getApplicationContext(), "TELEFONE ALTERADO COM SUCESSO!!", Toast.LENGTH_LONG);
+                    toast5.setGravity(Gravity.CENTER, 0, 0);
+                    toast5.show();
+                }
+            })
+            .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+
+                }
+            });
+
+        builder.show();
     }
 }
 

@@ -30,7 +30,7 @@ public class Fragment_Minhas extends Fragment {
     ListView lv;
 
     FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference,databaseref;
+    DatabaseReference databaseReference;
 
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseUser user = firebaseAuth.getCurrentUser();

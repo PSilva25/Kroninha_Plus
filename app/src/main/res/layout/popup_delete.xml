@@ -4,54 +4,17 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_lists"
     android:padding="10dp"
     android:layout_gravity="center">
-
-
-    <TextView
-        android:id="@+id/exclusao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Exclusão"
-        android:textColor="@color/colorPrimary"
-        android:textSize="20sp"
-        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/deseja"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:text="Tem certeza de que quer excluir essa carona?"
-        android:textColor="#000"
+        android:textColor="@color/colorPrimary"
         android:textSize="18sp" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp">
-
-        <Button
-            android:id="@+id/bot_nao"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:background="@drawable/button_gradient_red"
-            android:text="Cancelar"
-            android:textColor="#FFFFFF" />
-
-
-        <Button
-            android:id="@+id/bot_deleta"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/bot_nao"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/button_gradient_blue"
-            android:text="Excluir"
-            android:textColor="#FFFFFF" />
-
-    </RelativeLayout>
 
 </LinearLayout>

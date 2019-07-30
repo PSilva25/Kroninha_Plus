@@ -4,12 +4,14 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
@@ -32,7 +34,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.xetelas.nova.FireMissilesLimit;
 import com.xetelas.nova.Objects.Caronas;
 import com.xetelas.nova.MainActivity;
 import com.xetelas.nova.R;
@@ -52,20 +53,12 @@ public class Fragment_Cadastrar extends Fragment {
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseUser user = firebaseAuth.getCurrentUser();
     final Calendar myCalendar = Calendar.getInstance();
-    String num = null;
-    Dialog myDialog;
-    EditText tell;
     String contadora = "0";
-    int conta2 = 0;
-    int diax = 0, mesx = 0, anox = 0, diaatual = 0, mesatual = 0, anoatual = 0, quantidade, MESATUAL = 0;
     String[] cities;
-    final String[] verifica = {""};
     private View view;
     private Button button;
     long maxid = 0;
     Context context;
-    int veri = 0;
-
 
     @Nullable
     @Override
@@ -163,11 +156,6 @@ public class Fragment_Cadastrar extends Fragment {
                     pegaHoraatual = hora_atual.split(":");
                     pegaHoracadastrada = hora.getText().toString().split(":");
 
-                    horaatual = Integer.valueOf(pegaHoraatual[0]);
-                    minatual = Integer.valueOf(pegaHoraatual[1]);
-                    horacadastrada = Integer.valueOf(pegaHoracadastrada[0]);
-                    mincadastrado = Integer.valueOf(pegaHoracadastrada[1]);
-
                     pega = dataFormatada.split("-");
                     pegadataentrada = data.getText().toString().split("/");
                     String pega1 = dataFormatada;
@@ -213,9 +201,7 @@ public class Fragment_Cadastrar extends Fragment {
                         toast.show();
 
                     } else {
-
                         verificaTell();
-
                     }
                 }
 
@@ -277,13 +263,10 @@ public class Fragment_Cadastrar extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (!dataSnapshot.exists()) {
-                    myDialog = new Dialog(context);
                     ShowPopup();
                 } else if (dataSnapshot.getValue().toString().equals("")) {
-                    myDialog = new Dialog(getContext());
                     ShowPopup();
                 } else if (dataSnapshot.exists()) {
-
                     cadastra();
                 }
             }
@@ -295,10 +278,16 @@ public class Fragment_Cadastrar extends Fragment {
     }
 
     public void ShowPopup() {
-        myDialog.setContentView(R.layout.popup_tell);
-        final EditText dd = myDialog.findViewById(R.id.edit_tell_ddd);
-        final EditText x5 = myDialog.findViewById(R.id.edit_tell_5num);
-        final EditText x4 = myDialog.findViewById(R.id.edit_tell_4num);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+        LayoutInflater factory = LayoutInflater.from(getContext());
+        View content = factory.inflate(R.layout.popup_tell, null);
+
+        builder.setTitle("Insira seu número telefone (DDD + 8 numeros)");
+
+        final EditText dd = content.findViewById(R.id.edit_tell_ddd);
+        final EditText x5 = content.findViewById(R.id.edit_tell_5num);
+        final EditText x4 = content.findViewById(R.id.edit_tell_4num);
 
         dd.addTextChangedListener(new TextWatcher() {
             public void afterTextChanged(Editable s) {
@@ -324,25 +313,26 @@ public class Fragment_Cadastrar extends Fragment {
             }
         });
 
-        Button filtro = myDialog.findViewById(R.id.bot_addtell);
-        filtro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String tell = dd.getText().toString() + x5.getText().toString() + x4.getText().toString();
-                databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("telefone").setValue(tell);
-                myDialog.dismiss();
 
-                Toast toast5 = Toast.makeText(getContext(), "TELEFONE CADASTRADO COM SUCESSO!!", Toast.LENGTH_LONG);
-                toast5.setGravity(Gravity.CENTER, 0, 0);
-                toast5.show();
-                verificaTell();
+        builder.setView(content)
+                .setPositiveButton("Cadastrar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        String tell = dd.getText().toString() + x5.getText().toString() + x4.getText().toString();
+                        databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("telefone").setValue(tell);
+                        Toast toast5 = Toast.makeText(getContext(), "TELEFONE CADASTRADO COM SUCESSO!!", Toast.LENGTH_LONG);
+                        toast5.setGravity(Gravity.CENTER, 0, 0);
+                        toast5.show();
+                        verificaTell();
+                    }
+                })
+                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
 
+                    }
+                });
 
-            }
-        });
-
-        myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-        myDialog.show();
+        builder.show();
     }
 
     public int verify() {
@@ -363,7 +353,6 @@ public class Fragment_Cadastrar extends Fragment {
                 break;
             }
         }
-
         z = x + y;
 
         if (para.getText().toString().trim().equals(de.getText().toString().trim())) {
@@ -398,7 +387,6 @@ public class Fragment_Cadastrar extends Fragment {
         if (!dados.getOrigem().equals("")) {
 
             databaseReference.child("total_caronas").setValue(String.valueOf(contadora1 + 1));
-
             databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("Caronas").child(String.valueOf(contadora1 + 1)).child("data_postagem").setValue(dataFormatada);
             databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("Caronas").child(String.valueOf(contadora1 + 1)).child("id_post").setValue(String.valueOf(contadora1 + 1));
             databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("Caronas").child(String.valueOf(contadora1 + 1)).child("usuario").setValue(user.getDisplayName());
@@ -407,7 +395,6 @@ public class Fragment_Cadastrar extends Fragment {
             databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("Caronas").child(String.valueOf(contadora1 + 1)).child("data").setValue(dados.getData());
             databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("Caronas").child(String.valueOf(contadora1 + 1)).child("hora").setValue(dados.getHora());
             databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("Caronas").child(String.valueOf(contadora1 + 1)).child("comentario").setValue(dados.getComent());
-
 
             dados.setComent("");
             dados.setHora("");
@@ -424,21 +411,8 @@ public class Fragment_Cadastrar extends Fragment {
     public int veriFuturo(String pegadataentrada, String pega) {
 
         int x = 0;
-        SimpleDateFormat formataData = new SimpleDateFormat("dd-MM-yyyy");
-        Date data2 = new Date();
-        String dataFormatada;
-        dataFormatada = formataData.format(data2);
-
-
-        int horaatual = 0, horacadastrada = 0, diaatual = 0, diacadastrado = 0, mesatual = 0, mescadastrado = 0, anoatual = 0, anocadastrado = 0, minatual = 0, mincadastrado = 0;
-
-        int xd = 0, resposta = 0, novodia = 0, novomes = 0, novoano = 0;
-
-        SimpleDateFormat dateFormat_hora = new SimpleDateFormat("HH:mm:ss");
-        Calendar cal = Calendar.getInstance();
-        Date data_atual = cal.getTime();
-        String hora_atual = dateFormat_hora.format(data_atual);
-
+        int diaatual = 0, diacadastrado = 0, mesatual = 0, mescadastrado = 0, anoatual = 0, anocadastrado = 0, minatual = 0, mincadastrado = 0;
+        int xd, resposta = 0, novodia = 0, novomes = 0, novoano = 0;
 
         String[] pega1 = pega.split("-");
         String[] pegadataentrada1 = pegadataentrada.split("/");
@@ -458,21 +432,16 @@ public class Fragment_Cadastrar extends Fragment {
             novoano = anoatual;
 
             if (xd > 31) {
-
                 resposta = xd - 31;
-
                 novodia = resposta;
                 novomes = mesatual + 1;
                 novoano = anoatual;
 
                 if (novomes > 12) {
-
                     novoano = anoatual + 1;
                     novomes = 1;
                     novodia = resposta;
                 }
-
-
             }
 
 
@@ -484,15 +453,12 @@ public class Fragment_Cadastrar extends Fragment {
             novoano = anoatual;
 
             if (xd > 30) {
-
                 resposta = xd - 30;
-
                 novodia = resposta;
                 novomes = mesatual + 1;
 
 
                 if (novomes > 12) {
-
                     novoano = anoatual + 1;
                     novomes = 1;
                     novodia = resposta;
@@ -509,17 +475,12 @@ public class Fragment_Cadastrar extends Fragment {
             } else if (xd > 29 && mesatual == 2) {
 
                 resposta = xd - 29;
-
                 novodia = resposta;
                 novomes = mesatual + 1;
-
             }
-
         }
 
-
         if ((novodia < diacadastrado && novomes == mescadastrado && novoano == anocadastrado) || (novodia < diacadastrado && novomes < mescadastrado && novoano == anocadastrado) || (novodia < diacadastrado && novomes == mescadastrado && novoano < anocadastrado) || (novodia < diacadastrado && novomes < mescadastrado && novoano < anocadastrado)) {
-
             x = 1;
         }
 

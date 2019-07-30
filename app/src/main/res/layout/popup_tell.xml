@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_item_list"
-    android:padding="10dp"
-    android:layout_gravity="center">
-
-    <TextView
-        android:id="@+id/insert_tell"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/insira_seu_n_mero_telefone"
-        android:textColor="@color/colorPrimary"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/id_mensagem_tell"
@@ -24,15 +13,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/para_oferecer_uma_carona"
-        android:textColor="#000"
-        android:textStyle="bold"
-        android:textSize="18sp"/>
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/background_item_list"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:orientation="horizontal">
 
         <EditText
@@ -41,47 +30,36 @@
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:background="@android:drawable/editbox_background"
-            android:textSize="20sp"
+            android:hint="DD"
             android:inputType="phone"
             android:maxLength="2"
-            android:hint="DD"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
         <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:id="@+id/edit_tell_5num"
-            android:background="@android:drawable/editbox_background"
-            android:textSize="20sp"
-            android:inputType="phone"
-            android:maxLength="5"
-            android:hint="XXXXX"
-            android:textAlignment="center"/>
-
-        <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/edit_tell_4num"
             android:background="@android:drawable/editbox_background"
-            android:textSize="20sp"
+            android:hint="XXXX"
             android:inputType="phone"
             android:maxLength="4"
-            android:hint="XXXX"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
+        <EditText
+            android:id="@+id/edit_tell_4num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:drawable/editbox_background"
+            android:hint="XXXX"
+            android:inputType="phone"
+            android:maxLength="4"
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/bot_addtell"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="end"
-        android:background="@drawable/button_gradient_blue"
-        android:text="@string/feito"
-        android:textColor="#FFFFFF" />
 
 </LinearLayout>

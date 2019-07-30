@@ -5,34 +5,24 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_item_list"
     android:padding="10dp"
     android:layout_gravity="center">
-
-    <TextView
-        android:id="@+id/atualizar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Atualizar telefone"
-        android:textColor="@color/colorPrimary"
-        android:textSize="20sp"
-        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/id_mensagem_tell"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="Insira abaixo o número atualizado:"
-        android:textColor="#000"
+        android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         android:textSize="18sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/background_item_list"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:orientation="horizontal">
 
         <EditText
@@ -75,29 +65,5 @@
     </LinearLayout>
 
 
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
-
-        <Button
-            android:id="@+id/bot_cancel"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Cancelar"
-            android:background="@drawable/button_gradient_red"
-            android:textColor="#FFFFFF"/>
-
-        <Button
-            android:id="@+id/bot_addtell"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/button_gradient_blue"
-            android:text="Feito"
-            android:textColor="#FFFFFF" />
-
-    </RelativeLayout>
 
 </LinearLayout>
