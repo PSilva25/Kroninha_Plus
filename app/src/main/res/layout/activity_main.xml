@@ -13,20 +13,9 @@
         android:id="@+id/imagefundo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/ic_logo_"
+        app:srcCompat="@drawable/ic_kroninha_pro_banne"
         android:layout_marginBottom="40dp"
         android:contentDescription="TODO" />
-
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/ic_logo_"
-        android:layout_marginBottom="40dp"
-        android:contentDescription="TODO" />
-
-
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"

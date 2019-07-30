@@ -57,7 +57,7 @@ public class Fragment_Cadastrar extends Fragment {
     EditText tell;
     String contadora = "0";
     int conta2 = 0;
-    int diax = 0, mesx = 0, anox = 0, diaatual = 0, mesatual = 0, anoatual = 0, quantidade, MESATUAL =0;
+    int diax = 0, mesx = 0, anox = 0, diaatual = 0, mesatual = 0, anoatual = 0, quantidade, MESATUAL = 0;
     String[] cities;
     final String[] verifica = {""};
     private View view;
@@ -179,19 +179,16 @@ public class Fragment_Cadastrar extends Fragment {
                     diacadastrado = Integer.valueOf(pegadataentrada[0]);
                     mescadastrado = Integer.valueOf(pegadataentrada[1]);
                     anocadastrado = Integer.valueOf(pegadataentrada[2]);
-                    int resposta = veriFuturo(pegadataentrada1,pega1);
+                    int resposta = veriFuturo(pegadataentrada1, pega1);
 
-                   if(resposta==1){
-
-
-                       Toast toast = Toast.makeText(getContext(), "DATA LIMITE DE CADASTRO:ATE 7 DIAS DO DIA ATUAL, COLOQUE UMA DATA DIFERENTE", Toast.LENGTH_LONG);
-                       toast.setGravity(Gravity.CENTER, 0, 0);
-                       toast.show();
-
-                   }else
+                    if (resposta == 1) {
 
 
-                    if ((diaatual >= diacadastrado && mesatual > mescadastrado && anoatual == anocadastrado)) {
+                        Toast toast = Toast.makeText(getContext(), "DATA LIMITE DE CADASTRO:ATE 7 DIAS DO DIA ATUAL, COLOQUE UMA DATA DIFERENTE", Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
+
+                    } else if ((diaatual >= diacadastrado && mesatual > mescadastrado && anoatual == anocadastrado)) {
 
                         Toast toast = Toast.makeText(getContext(), "ESSA DATA JÁ PASSOU! ESCOLHA UMA NOVA DATA...", Toast.LENGTH_LONG);
                         toast.setGravity(Gravity.CENTER, 0, 0);
@@ -209,7 +206,7 @@ public class Fragment_Cadastrar extends Fragment {
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
 
-                    } else  if ((diaatual > diacadastrado && mesatual == mescadastrado && anoatual <= anocadastrado)) {
+                    } else if ((diaatual > diacadastrado && mesatual == mescadastrado && anoatual <= anocadastrado)) {
 
                         Toast toast = Toast.makeText(getContext(), "ESSA DATA JÁ PASSOU! ESCOLHA UMA NOVA DATA...", Toast.LENGTH_LONG);
                         toast.setGravity(Gravity.CENTER, 0, 0);
@@ -410,7 +407,7 @@ public class Fragment_Cadastrar extends Fragment {
             databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("Caronas").child(String.valueOf(contadora1 + 1)).child("data").setValue(dados.getData());
             databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("Caronas").child(String.valueOf(contadora1 + 1)).child("hora").setValue(dados.getHora());
             databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("Caronas").child(String.valueOf(contadora1 + 1)).child("comentario").setValue(dados.getComent());
-            
+
 
             dados.setComent("");
             dados.setHora("");
@@ -435,7 +432,7 @@ public class Fragment_Cadastrar extends Fragment {
 
         int horaatual = 0, horacadastrada = 0, diaatual = 0, diacadastrado = 0, mesatual = 0, mescadastrado = 0, anoatual = 0, anocadastrado = 0, minatual = 0, mincadastrado = 0;
 
-        int xd = 0, resposta = 0,novodia=0,novomes=0,novoano=0;
+        int xd = 0, resposta = 0, novodia = 0, novomes = 0, novoano = 0;
 
         SimpleDateFormat dateFormat_hora = new SimpleDateFormat("HH:mm:ss");
         Calendar cal = Calendar.getInstance();
@@ -455,77 +452,73 @@ public class Fragment_Cadastrar extends Fragment {
 
         if (mesatual == 1 || mesatual == 3 || mesatual == 5 || mesatual == 7 || mesatual == 8 || mesatual == 10 || mesatual == 12) {
 
-                xd = diaatual+7;
-                novodia = xd;
-                novomes=mesatual;
-                novoano=anoatual;
+            xd = diaatual + 7;
+            novodia = xd;
+            novomes = mesatual;
+            novoano = anoatual;
 
-                if (xd > 31) {
+            if (xd > 31) {
 
-                    resposta = xd-31;
+                resposta = xd - 31;
 
+                novodia = resposta;
+                novomes = mesatual + 1;
+                novoano = anoatual;
+
+                if (novomes > 12) {
+
+                    novoano = anoatual + 1;
+                    novomes = 1;
                     novodia = resposta;
-                    novomes = mesatual+1;
-                    novoano = anoatual;
-
-                    if(novomes>12){
-
-                        novoano = anoatual+1;
-                        novomes= 1;
-                        novodia = resposta;
-                    }
-
-
                 }
 
 
+            }
 
 
+        } else if (mesatual == 2 || mesatual == 4 || mesatual == 6 || mesatual == 9 || mesatual == 11) {
 
-        }else  if (mesatual == 2 || mesatual == 4 || mesatual == 6 || mesatual == 9 || mesatual ==11) {
-
-            xd = diaatual+7;
-            novodia=xd;
-            novomes=mesatual;
-            novoano=anoatual;
+            xd = diaatual + 7;
+            novodia = xd;
+            novomes = mesatual;
+            novoano = anoatual;
 
             if (xd > 30) {
 
-                    resposta = xd-30;
+                resposta = xd - 30;
 
+                novodia = resposta;
+                novomes = mesatual + 1;
+
+
+                if (novomes > 12) {
+
+                    novoano = anoatual + 1;
+                    novomes = 1;
                     novodia = resposta;
-                    novomes = mesatual+1;
-
-
-                    if(novomes>12){
-
-                        novoano = anoatual+1;
-                        novomes= 1;
-                        novodia = resposta;
-                    }
-
-
-                } else if (xd > 28 && mesatual==2) {
-
-                    resposta = xd-28;
-
-                    novodia = resposta;
-                    novomes = mesatual+1;
-
-                }else if (xd > 29 && mesatual==2) {
-
-                    resposta = xd-29;
-
-                    novodia = resposta;
-                    novomes = mesatual+1;
-
                 }
+
+
+            } else if (xd > 28 && mesatual == 2) {
+
+                resposta = xd - 28;
+
+                novodia = resposta;
+                novomes = mesatual + 1;
+
+            } else if (xd > 29 && mesatual == 2) {
+
+                resposta = xd - 29;
+
+                novodia = resposta;
+                novomes = mesatual + 1;
+
+            }
 
         }
 
 
-
-        if((novodia<diacadastrado && novomes == mescadastrado && novoano==anocadastrado)||(novodia<diacadastrado && novomes< mescadastrado && novoano==anocadastrado)||(novodia<diacadastrado && novomes == mescadastrado && novoano<anocadastrado)||(novodia<diacadastrado && novomes< mescadastrado && novoano<anocadastrado)){
+        if ((novodia < diacadastrado && novomes == mescadastrado && novoano == anocadastrado) || (novodia < diacadastrado && novomes < mescadastrado && novoano == anocadastrado) || (novodia < diacadastrado && novomes == mescadastrado && novoano < anocadastrado) || (novodia < diacadastrado && novomes < mescadastrado && novoano < anocadastrado)) {
 
             x = 1;
         }
