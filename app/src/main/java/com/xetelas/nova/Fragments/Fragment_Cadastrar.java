@@ -49,7 +49,7 @@ public class Fragment_Cadastrar extends Fragment {
     EditText data, hora, coment;
     String opaLink = MainActivity.link;
     FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference, databaseref, databaserefcont, databasetell, databaseverifica, dataBasedata;
+    DatabaseReference databaseReference, databaseref,databaseface, databaserefcont, databasetell, databaseverifica, dataBasedata;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseUser user = firebaseAuth.getCurrentUser();
     final Calendar myCalendar = Calendar.getInstance();
@@ -66,6 +66,8 @@ public class Fragment_Cadastrar extends Fragment {
         FirebaseApp.initializeApp(getContext());
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
+        databaseface = firebaseDatabase.getReference();
+
 
         view = inflater.inflate(R.layout.fragment_cadastrar, container, false);
 
@@ -77,6 +79,7 @@ public class Fragment_Cadastrar extends Fragment {
 
         context = getContext();
 
+        verificaface();
 
         cities = getResources().getStringArray(R.array.cidades);
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, cities);
@@ -86,7 +89,7 @@ public class Fragment_Cadastrar extends Fragment {
 
         databaseref = firebaseDatabase.getReference().child(user.getDisplayName() + " - " + user.getUid()).child("Caronas");
 
-        databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("linkFace").setValue(opaLink);
+
         verificaTell();
         databaseref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -486,5 +489,30 @@ public class Fragment_Cadastrar extends Fragment {
 
         return x;
     }
+
+    public void verificaface(){
+
+
+        databaseface.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if(!dataSnapshot.child(user.getDisplayName() + " - " + user.getUid()).child("linkFace").exists()){
+
+                    databaseface.child(user.getDisplayName() + " - " + user.getUid()).child("linkFace").setValue(opaLink);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+    }
+
 
 }
