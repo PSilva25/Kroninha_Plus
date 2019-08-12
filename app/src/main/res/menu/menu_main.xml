@@ -8,6 +8,11 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_politica"
+        android:orderInCategory="100"
+        android:title="Política de Privacidade"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/sair"
         android:orderInCategory="100"
         android:title="@string/sair"

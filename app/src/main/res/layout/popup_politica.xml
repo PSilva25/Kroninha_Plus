@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Política de Privacidade - App Kroninha"
+            android:textColor="@color/colorPrimary"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\nDIVULGAÇÃO"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\n\nO QUE FAZEMOS COM AS SUAS INFORMAÇÕES?"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\nO aplicativo apenas permite realizar login por meio da conta do Facebook. Esta medida tem o objetivo de garantir o mínimo de transparência quanto à identidade das pessoas que utilizam o aplicativo.
+
+        \n\nQuando você utiliza nosso aplicativo, como parte do processo, coletamos as informações pessoais que você nos fornece, tais como:
+
+        \n* Nome,
+        \n* E-mail,
+        \n* Número do Whatsapp e
+        \n* Endereço público do seu perfil do Facebook.
+        \n\nQuando você navega por nosso app, recebemos também automaticamente o protocolo de internet do seu celular (endereço de IP) a fim de obter informações que nos ajudam a saber mais sobre seu navegador e sistema operacional.
+
+        \n\nTodas estas informações são utilizadas para melhor identificar os usuários, tanto quem oferece caronas quanto quem usufrui delas.
+
+        \n\nO usuário apenas necessitará inserir número de Whatsapp se for oferecer alguma carona.
+
+        \n\nNão nos responsabilizamos por nenhum ocorrido negativo durante as caronas, tais como esquecimento de objetos no veículo ou questões mais graves como acidentes." />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\nDIVULGAÇÃO"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\nPodemos divulgar suas informações pessoais se formos obrigados por lei a fazê-lo ou se você violar nossos Termos de serviço." />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\nSEGURANÇA"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\nPara proteger suas informações pessoais, tomamos precauções e seguimos as melhores práticas para nos certificar que elas não sejam perdidas, usurpadas, acessadas, divulgadas, alteradas ou destruídas.
+
+\n\nAo usar nosso aplicativo, você também isenta o aplicativo de qualquer responsabilidade física e de objetos deixados nas caronas.
+
+\n\nO aplicativo não cobra nenhuma taxa pelo serviço oferecido referente às caronas. O aplicativo não solicita dados bancários. O aplicativo não solicita dados de cartão de crédito." />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\nIDADE DE CONSENTIMENTO"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\nAo usar o aplicativo, você confirma que você é maior de idade e que você nos deu seu consentimento para permitir que qualquer um dos seus dependentes menores de idade usem o aplicativo.
+
+\n\nNo entanto, atente-se que a conta está no seu perfil e você é responsável pela utilização e representação do mesmo." />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\nALTERAÇÕES NA POLÍTICA DE PRIVACIDADE"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reservamos o direito de modificar essa política de privacidade a qualquer momento. Portanto, por favor, leia-a com frequência. As alterações e esclarecimentos surtem efeito imediatamente após serem publicadas no aplicativo. Caso façamos alterações na política de privacidade, iremos notificá-lo sobre a atualização. Assim, você saberá quais informações coletamos, como as usamos, e sob que circunstâncias, caso aplicável, as utilizaremos e/ou divulgaremos. Caso ocorra a fusão do nosso aplicativo com outra empresa, suas informações podem ser transferidas para os novos proprietários para que possamos continuar conectados a você." />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\nPERGUNTAS E INFORMAÇÕES DE CONTATO"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\nSe você gostaria de acessar, corrigir, alterar ou excluir quaisquer informações pessoais que temos sobre você, registre uma queixa, ou simplesmente peça mais informações escrevendo para o email labpasid@gmail.com." />
+
+
+    </LinearLayout>
+</ScrollView>

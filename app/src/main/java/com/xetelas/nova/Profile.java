@@ -82,6 +82,9 @@ public class Profile extends AppCompatActivity {
         if (id == R.id.action_settings) {
             ShowPopup();
         }
+        if (id == R.id.action_politica) {
+            ShowPolitica();
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -140,6 +143,22 @@ public class Profile extends AppCompatActivity {
                 }
             });
 
+        builder.show();
+    }
+
+    public void ShowPolitica() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        LayoutInflater factory = LayoutInflater.from(this);
+        View content = factory.inflate(R.layout.popup_politica, null);
+
+        builder.setView(content)
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
         builder.show();
     }
 }
