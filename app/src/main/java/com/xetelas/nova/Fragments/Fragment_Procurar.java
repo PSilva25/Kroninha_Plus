@@ -67,6 +67,10 @@ public class Fragment_Procurar extends Fragment {
     Calendar myCalendar = Calendar.getInstance();
     ListView lv;
 
+
+    int xd, resposta = 0, novodia = 0, novomes = 0, novoano = 0;
+    int diaatual = 0,mesatual = 0,anoatual = 0;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_procurar, container, false);
@@ -120,6 +124,73 @@ public class Fragment_Procurar extends Fragment {
         final int pegadia = Integer.valueOf(pegadata[0]);
         final int pegames = Integer.valueOf(pegadata[1]);
         final int pegaano = Integer.valueOf(pegadata[2]);
+        int x = 0;
+
+
+
+
+
+
+        diaatual = Integer.valueOf(pegadata[0]);
+        mesatual = Integer.valueOf(pegadata[1]);
+        anoatual = Integer.valueOf(pegadata[2]);
+
+        if (mesatual == 1 || mesatual == 3 || mesatual == 5 || mesatual == 7 || mesatual == 8 || mesatual == 10 || mesatual == 12) {
+
+            xd = diaatual + 7;
+            novodia = xd;
+            novomes = mesatual;
+            novoano = anoatual;
+
+            if (xd > 31) {
+                resposta = xd - 31;
+                novodia = resposta;
+                novomes = mesatual + 1;
+                novoano = anoatual;
+
+                if (novomes > 12) {
+                    novoano = anoatual + 1;
+                    novomes = 1;
+                    novodia = resposta;
+                }
+            }
+
+
+        } else if (mesatual == 2 || mesatual == 4 || mesatual == 6 || mesatual == 9 || mesatual == 11) {
+
+            xd = diaatual + 7;
+            novodia = xd;
+            novomes = mesatual;
+            novoano = anoatual;
+
+            if (xd > 30) {
+                resposta = xd - 30;
+                novodia = resposta;
+                novomes = mesatual + 1;
+
+
+                if (novomes > 12) {
+                    novoano = anoatual + 1;
+                    novomes = 1;
+                    novodia = resposta;
+                }
+
+
+            } else if (xd > 28 && mesatual == 2) {
+
+                resposta = xd - 28;
+
+                novodia = resposta;
+                novomes = mesatual + 1;
+
+            } else if (xd > 29 && mesatual == 2) {
+
+                resposta = xd - 29;
+                novodia = resposta;
+                novomes = mesatual + 1;
+            }
+        }
+
 
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -145,8 +216,13 @@ public class Fragment_Procurar extends Fragment {
                             int mespost = Integer.valueOf(datapost[1]);
                             int anopost = Integer.valueOf(datapost[2]);
 
+                            if (diapost>diaatual){
 
-                            if (diapost >= pegadia && mespost >= pegames && anopost >= pegaano) {
+                                diapost = diaatual;
+
+                            }
+
+                            if ((diapost >= diaatual || diapost <= novodia ) && (mespost>=mesatual || mespost >= novomes) && (anopost>=anoatual || anopost <= novoano)) {
                                 Caronas car = new Caronas();
 
                                 car.setTell(tellphone);

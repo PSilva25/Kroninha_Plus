@@ -5,12 +5,18 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.v4.app.FragmentManager;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.xetelas.nova.Objects.Caronas;
 import com.xetelas.nova.R;
 
@@ -21,6 +27,11 @@ public class CaronasAdapter extends BaseAdapter {
     private Context context;
     private List<Caronas> fragments;
     private FragmentManager fragmentManager;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseUser user = firebaseAuth.getCurrentUser();
+
 
     public CaronasAdapter(Context context, List<Caronas> fragments, FragmentManager fragmentManager) {
         this.context = context;
@@ -81,12 +92,33 @@ public class CaronasAdapter extends BaseAdapter {
         face.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                firebaseDatabase = FirebaseDatabase.getInstance();
+                databaseReference = firebaseDatabase.getReference();
+
+
+
+
                 String url = fragments.get(position).getLink();
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(url));
-                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(i);
+
+                if( url != null ){
+
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(i);
+
+
+                }else {
+
+                    Toast toast = Toast.makeText(context, "LINK NÃO DISPONIVEL", Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+
+
+                }
             }
+
         });
 
         usuario.setText(fragments.get(position).getNome());
