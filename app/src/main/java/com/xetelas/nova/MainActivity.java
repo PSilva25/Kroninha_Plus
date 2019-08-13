@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
     LoginButton loginButton;
     public static String link;
 
+    AccessToken x;
+
     Button fb;
     FireMissilesDialogFragment opa = new FireMissilesDialogFragment();
     private static final String TAG = "FacebookLogin";
@@ -78,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
                     Log.d(TAG, "facebook:onSuccess:" + loginResult);
 
                     handleFacebookAccessToken(loginResult.getAccessToken());
+
+
+
                 }
 
                 @Override
@@ -105,13 +110,14 @@ public class MainActivity extends AppCompatActivity {
         GraphRequest graphRequest = GraphRequest.newMeRequest(newAccessToken, new GraphRequest.GraphJSONObjectCallback() {
             @Override
             public void onCompleted(JSONObject object, GraphResponse response) {
-            try {
-                link = object.getString("link");
+                try {
+
+                    link = object.getString("link");
 
 
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -142,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d(TAG, "signInWithCredential:success");
                     FirebaseUser user = firebaseAuth.getCurrentUser();
 
+                    x = accessToken;
                     loadUserprofile(accessToken);
                     updateUI(user, false);
                 } else {
@@ -155,6 +162,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user, Boolean sim) {
         if (user != null && sim) {
+
+            DatabaseReference databaseReference;
+            FirebaseDatabase firebaseDatabase;
+
+            firebaseDatabase = FirebaseDatabase.getInstance();
+            databaseReference = firebaseDatabase.getReference();
+            databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("linkFace").setValue(link);
+
+
+
+
+
             Intent intent = new Intent(MainActivity.this, Profile.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
