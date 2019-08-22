@@ -36,7 +36,8 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:contentDescription="TODO"
-                android:foreground="@drawable/com_facebook_button_icon_blue" />
+                android:foreground="@drawable/com_facebook_button_icon_blue"
+                android:visibility="invisible" />
 
             <ImageView
                 android:id="@+id/whats"
