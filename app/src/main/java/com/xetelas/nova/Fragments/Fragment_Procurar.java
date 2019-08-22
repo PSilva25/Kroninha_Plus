@@ -127,10 +127,6 @@ public class Fragment_Procurar extends Fragment {
         int x = 0;
 
 
-
-
-
-
         diaatual = Integer.valueOf(pegadata[0]);
         mesatual = Integer.valueOf(pegadata[1]);
         anoatual = Integer.valueOf(pegadata[2]);
@@ -192,7 +188,6 @@ public class Fragment_Procurar extends Fragment {
         }
 
 
-
         databaseReference.addValueEventListener(new ValueEventListener() {
 
 
@@ -216,13 +211,13 @@ public class Fragment_Procurar extends Fragment {
                             int mespost = Integer.valueOf(datapost[1]);
                             int anopost = Integer.valueOf(datapost[2]);
 
-                            if (diapost>diaatual){
+                            if (diapost > diaatual) {
 
                                 diapost = diaatual;
 
                             }
 
-                            if ((diapost >= diaatual || diapost <= novodia ) && (mespost>=mesatual || mespost >= novomes) && (anopost>=anoatual || anopost <= novoano)) {
+                            if ((diapost >= diaatual && diapost <= novodia) && (mespost >= mesatual || mespost >= novomes) && (anopost >= anoatual || anopost <= novoano)) {
                                 Caronas car = new Caronas();
 
                                 car.setTell(tellphone);
