@@ -26,6 +26,9 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,6 +40,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.xetelas.nova.Objects.Caronas;
 import com.xetelas.nova.MainActivity;
 import com.xetelas.nova.R;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -500,7 +506,10 @@ public class Fragment_Cadastrar extends Fragment {
                 if(!dataSnapshot.child(user.getDisplayName() + " - " + user.getUid()).child("linkFace").exists()){
 
                     databaseface.child(user.getDisplayName() + " - " + user.getUid()).child("linkFace").setValue(opaLink);
+                    loadUserprofile();
                 }
+
+
 
             }
 
@@ -513,6 +522,33 @@ public class Fragment_Cadastrar extends Fragment {
 
 
     }
+
+
+    private void loadUserprofile() {
+
+        GraphRequest graphRequest = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+            @Override
+            public void onCompleted(JSONObject object, GraphResponse response) {
+                try {
+
+                    String link = object.getString("link");
+
+                    databaseReference.child(user.getDisplayName() + " - " + user.getUid()).child("linkFace").setValue(link);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        Bundle bundle = new Bundle();
+
+        bundle.putString("fields", "first_name,last_name,email,id,link");
+        graphRequest.setParameters(bundle);
+        graphRequest.executeAsync();
+
+    }
+
 
 
 }
